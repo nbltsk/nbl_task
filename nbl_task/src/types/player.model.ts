@@ -7,9 +7,9 @@ export interface Player {
     position: string;
     team: Team;
     weight_pounds?: any;
-  }
-  
-  type Team = {
+}
+
+type Team = {
     id: number;
     abbreviation: string; 
     city: string; 
@@ -17,8 +17,8 @@ export interface Player {
     division: string; 
     full_name: string; 
     name: string;
-  }
-  
-  export interface PlayerStatsPerSeason {
+}
+
+export interface PlayerStatsPerSeason {
     [key: string]: any;
-  }
+}
