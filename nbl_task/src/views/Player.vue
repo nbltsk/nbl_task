@@ -44,6 +44,7 @@ import Loader from '@/components/ui/Loader.vue';
 import PlayerDetails from '@/components/player/PlayerDetails.vue';
 import DashboardContainer from '@/components/ui/DashboardContainer.vue';
 import { DropdownProperties } from '../enums/dropdownProperties';
+import { Player } from '../types/player.model';
 export default Vue.extend({
   name: 'Player',
   data() {
@@ -101,7 +102,7 @@ export default Vue.extend({
     getPlayerInfos(id: string) {
       axios.get(`https://www.balldontlie.io/api/v1/players/${id}`)
         .then(response => {
-          const { data }: any = response;
+          const { data }: { data: Player } = response;
           const { team, ...details } = data;
           this.teamDetails = team;
           this.playerDetails = details;
@@ -121,9 +122,9 @@ export default Vue.extend({
     },
    },
   created() {
+    this.toggleRequestStatus();
     this.getDropdownOptions;
     const { id } = this.$route.params;
-    this.toggleRequestStatus();
     this.getPlayerInfos(id);
     this.getStatisticsForGivenSeason(id, 'games_played');
     this.toggleRequestStatus();

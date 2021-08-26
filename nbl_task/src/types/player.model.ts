@@ -20,5 +20,5 @@ type Team = {
 }
 
 export interface PlayerStatsPerSeason {
-    [key: string]: any;
+    [key: string]: number | string;
 }

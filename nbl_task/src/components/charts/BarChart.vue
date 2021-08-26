@@ -11,6 +11,7 @@ import { CanvasRenderer } from "echarts/renderers";
 import { BarChart } from "echarts/charts";
 import { TooltipComponent, GridComponent } from "echarts/components";
 import VChart from "vue-echarts";
+import { ChartOptions } from '../../types/chart.model';
 
 use([
   CanvasRenderer,
@@ -35,8 +36,8 @@ export default Vue.extend({
     VChart,
   },
   computed: {
-    getOptions(): any {
-      const options = {
+    getOptions(): ChartOptions {
+      const options: ChartOptions = {
         xAxis: {
           type: 'category',
           data: this.categories,

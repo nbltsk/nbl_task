@@ -1,6 +1,9 @@
 <template>
   <section class="players">
-    <h1>All NBA Players</h1>
+    <div class="players__header">
+      <h1>All NBA Players</h1>
+      <p class="players__header-description">Click below to explore player's statistics.</p>
+    </div>
     <div class="players__container">
       <div class="players__content">
         <loader v-if="requestStatus" />
@@ -86,6 +89,14 @@ export default Vue.extend({
 </script>
 <style lang="scss" scoped>
 .players {
+  &__header {
+    &-description {
+      font-size: 20px;
+      line-height: 28px;
+      margin: 20px 0;
+    }
+  }
+
   &__container {
     margin: 0 0 50px;
     max-width: 100%;
